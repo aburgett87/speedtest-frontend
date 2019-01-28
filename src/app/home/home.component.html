@@ -1,3 +1,25 @@
-<p>
-  home works!
-</p>
+<ng-container *ngIf="authService.isAuthenticated()">
+  <mat-grid-list cols="3" rowHeight="200px">
+    <mat-grid-tile *ngFor="let testResult of todaysTestResults$ | async">
+      <mat-card class="results-card">
+        <mat-card-header>
+          <mat-card-title>{{testResult.location}}</mat-card-title>
+          <mat-card-subtitle>{{testResult.executionDateTime | date: 'medium'}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{testResult.testServerName}}
+          </p>
+          <p>
+            <span><i class="material-icons">cloud_download</i></span>
+            {{(testResult.maximumDownloadSpeed / 1000).toFixed(2)}} Mbps
+          </p>
+          <p>
+            <span><i class="material-icons">cloud_upload</i></span>
+            {{(testResult.maximumUploadSpeed / 1000).toFixed(2)}} Mbps
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-container>

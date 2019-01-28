@@ -6,7 +6,9 @@ export const environment = {
   production: false,
   clientID: 'C2mZiaZmoUNKR9rgW0C4wV3L3Ak8ULIt',
   domain: 'speedtest-stubias.au.auth0.com',
-  callbackURL: 'http://speedtest.stubias.local/callback'
+  callbackURL: 'http://speedtest.stubias.local/callback',
+  scope: 'read:testresults write:testresults',
+  audience: 'http://api.speedtest.stubias.local'
 };
 
 /*

@@ -15,7 +15,9 @@ export class AuthService {
     clientID: environment.clientID,
     domain: environment.domain,
     responseType: 'token id_token',
-    redirectUri: environment.callbackURL
+    redirectUri: environment.callbackURL,
+    scope: environment.scope,
+    audience: environment.audience
   });
 
   constructor(private router: Router) {
@@ -44,7 +46,6 @@ export class AuthService {
       } else if (err) {
         this.router.navigate(['/']);
         console.log(err);
-        alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
   }
@@ -64,7 +65,6 @@ export class AuthService {
        if (authResult && authResult.accessToken && authResult.idToken) {
          this.localLogin(authResult);
        } else if (err) {
-         alert(`Could not get a new token (${err.error}: ${err.errorDescription}).`);
          this.logout();
        }
     });

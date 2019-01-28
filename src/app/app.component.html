@@ -1,6 +1,19 @@
-<mat-toolbar color="primary">
-  Stubias Speed Test
-</mat-toolbar>
+<div class="mat-elevation-z6">
+  <nav class="docs-navbar-header">
+    <a class="mat-button" routerLink="/">
+        Home
+    </a>
+
+    <button mat-button *ngIf="!authService.isAuthenticated()" (click)="authService.login()">
+        Log In
+    </button>
+
+    <button mat-button *ngIf="authService.isAuthenticated()" (click)="authService.logout()">
+        Log Out
+    </button>
+  </nav>
+</div>
+
 <div class="basic-container">
   <router-outlet></router-outlet>
 </div>
