@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  clientID: 'C2mZiaZmoUNKR9rgW0C4wV3L3Ak8ULIt',
+  domain: 'speedtest-stubias.au.auth0.com',
+  callbackURL: 'http://speedtest.stubias.local/callback'
 };
 
 /*
