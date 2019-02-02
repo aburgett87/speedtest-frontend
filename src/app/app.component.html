@@ -1,19 +1,42 @@
 <div class="mat-elevation-z6">
-  <nav class="docs-navbar-header">
-    <a class="mat-button" routerLink="/">
-        Home
-    </a>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Speed Test</span>
+      <span class="example-spacer"></span>
+      <div fxShow="true" fxHide.lt-md="true">
+        <button mat-button *ngIf="!authService.isAuthenticated()" (click)="authService.login()">
+          <mat-icon>account_box</mat-icon>
+          Log In
+        </button>
+        <button mat-button *ngIf="authService.isAuthenticated()" (click)="authService.logout()">
+          <mat-icon>account_box</mat-icon>
+          Log Out
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-    <button mat-button *ngIf="!authService.isAuthenticated()" (click)="authService.login()">
-        Log In
-    </button>
-
-    <button mat-button *ngIf="authService.isAuthenticated()" (click)="authService.logout()">
-        Log Out
-    </button>
-  </nav>
-</div>
-
-<div class="basic-container">
-  <router-outlet></router-outlet>
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+          <button mat-list-item *ngIf="!authService.isAuthenticated()" (click)="authService.login()">
+            <mat-icon>account_box</mat-icon>
+            Log In
+          </button>
+          <button mat-list-item *ngIf="authService.isAuthenticated()" (click)="authService.logout()">
+            <mat-icon>account_box</mat-icon>
+            Log Out
+          </button>
+        <a (click)="sidenav.toggle()" mat-list-item>
+          <mat-icon>close</mat-icon> Close
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

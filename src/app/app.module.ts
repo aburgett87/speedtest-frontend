@@ -13,11 +13,18 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule }    from '@angular/common/http';
 import { CallbackComponent } from './callback/callback.component';
 import { HomeComponent } from './home/home.component';
+import { ChartsModule } from 'ng2-charts';
+import { SpeedTestLineGraphComponent } from './speed-test-line-graph/speed-test-line-graph.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon'
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
     CallbackComponent,
-    HomeComponent
+    HomeComponent,
+    SpeedTestLineGraphComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,12 @@ import { HomeComponent } from './home/home.component';
     SharedModule,
     HttpClientModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    ChartsModule,
+    FlexLayoutModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
