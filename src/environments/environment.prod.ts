@@ -4,5 +4,4 @@ export const environment = {
   domain: 'speedtest-stubias.au.auth0.com',
   callbackURL: 'https://staging.speedtest.burgett.id.au/callback',
   scope: 'read:testresults write:testresults',
-  audience: 'https://8u3rqd5cp8.execute-api.ap-southeast-2.amazonaws.com/Staging'
 };
