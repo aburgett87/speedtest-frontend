@@ -3,6 +3,7 @@ import argparse
 import os.path
 import uuid
 import pprint
+import os
 
 parser = argparse.ArgumentParser(description='Create/Update speedtest frontend stack')
 
@@ -49,3 +50,4 @@ else:
     cloudformation.execute_change_set(ChangeSetName=change_set_name, StackName=stackname)
     cloudformation.get_waiter('stack_update_complete').wait(StackName=stackname)
     print('Stack updated')
+
