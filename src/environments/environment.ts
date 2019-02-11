@@ -8,6 +8,7 @@ export const environment = {
   domain: 'speedtest-stubias.au.auth0.com',
   callbackURL: 'http://speedtest.stubias.local/callback',
   scope: 'read:testresults write:testresults',
+  audience: 'http://api.speedtest.stubias.local'
 };
 
 /*

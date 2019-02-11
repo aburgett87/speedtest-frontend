@@ -16,7 +16,8 @@ export class AuthService {
     domain: environment.domain,
     responseType: 'token id_token',
     redirectUri: environment.callbackURL,
-    scope: environment.scope
+    scope: environment.scope,
+    audience: environment.audience
   });
 
   constructor(private router: Router) {
