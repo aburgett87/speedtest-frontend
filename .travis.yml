@@ -14,3 +14,11 @@ install:
 
 script:
   - npm run build
+
+deploy:
+  provider: s3
+  bucket: $STAGING_BUCKET
+  skip_cleanup: true
+  local_dir: dist/speedtest-frontend
+  on:
+    branch: develop
